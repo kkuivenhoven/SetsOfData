@@ -1,0 +1,44 @@
+<h1>Herbs#graph_one</h1>
+<p>Find me in app/views/herbs/graph_one.html.erb</p>
+
+<div id="graphOne">
+</div>
+
+<script>
+var herbs = "<%= @herbs %>";
+var split_herbs = herbs.split('], [');
+//console.log("herbs: " + herbs);
+//console.log("split_herbs: " + split_herbs);
+for(var i=0; i < split_herbs.length; i++){
+  split_herbs[i] = split_herbs[i].split(';, &');
+  //console.log("**split_herbs["+i+"]: " + split_herbs[i]);
+  for(var j=0; j < split_herbs[i].length; j++){
+    split_herbs[i][j] =  split_herbs[i][j].replace("&quot;","");
+    split_herbs[i][j] =  split_herbs[i][j].replace("quot;","");
+    split_herbs[i][j] =  split_herbs[i][j].replace("&quot","");
+    console.log(">> split_herbs["+i+"]["+j+"]: " + split_herbs[i][j]);
+  }
+}
+
+var dataArray = [23, 13, 21, 14, 37, 15, 18, 34, 30];
+
+var svg = d3.select("#graphOne").append("svg")
+  .attr("height", 500)
+  .attr("width", 500)
+
+var div = d3.select("#graphOne").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
+
+svg.selectAll("rect")
+  .data(split_herbs)
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("height", function(d, i){ console.log("d: " + d); return d[1]*5;})
+    .attr("width", "25")
+    .attr("x", function(d, i){ return (i * 10);})
+    .attr("y", function(d, i){ return 500 - (d[1]*5);})
+    .attr("stroke", "black")
+    .attr("stroke-width", "0.5");
+
+</script>

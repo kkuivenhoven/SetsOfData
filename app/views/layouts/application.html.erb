@@ -6,7 +6,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
+
+  <nav class="navbar navbar-default navbar-expand-sm">
+    <%= link_to 'Home', root_path, method: :get %>
+    <%= link_to 'Graph One', herbs_graph_one_path, method: :get %>
+    <%= link_to 'Graph Two', herbs_graph_two_path, method: :get %>
+	</nav>
 
   <body>
     <%= yield %>
