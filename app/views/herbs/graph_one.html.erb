@@ -1,5 +1,18 @@
 <h1>Herbs#graph_one</h1>
 <p>Find me in app/views/herbs/graph_one.html.erb</p>
+<style>
+.bar {
+	fill: #6d9eff;
+}
+
+.tooltip {
+  position: absolute;
+  width: 275px;
+  height: 40px;
+  pointer-events: none;
+	color: #000000;
+}
+</style>
 
 <div id="graphOne">
 </div>
@@ -44,7 +57,7 @@ svg.selectAll("rect")
         div.transition()
           .duration(200)
           .style("opacity", .9);
-        div.html("<center>" + d[0] + " has a mean of " + d[1] + " mg GAE/g dw of Phenolic content </center>")
+        div.html("<center>" + d[0] + " has a mean of <br>" + d[1] + " mg GAE/g dw of Phenolic content </center>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px")
           .style("white-space", "nowrap")
