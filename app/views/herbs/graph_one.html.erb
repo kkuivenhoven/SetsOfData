@@ -39,6 +39,19 @@ svg.selectAll("rect")
     .attr("x", function(d, i){ return (i * 10);})
     .attr("y", function(d, i){ return 500 - (d[1]*5);})
     .attr("stroke", "black")
-    .attr("stroke-width", "0.5");
+    .attr("stroke-width", "0.5")
+    .on('mouseover', function(d, i){
+        div.transition()
+          .duration(200)
+          .style("opacity", .9);
+        div.html("<center>" + d[0] + " has a mean of " + d[1] + " mg GAE/g dw of Phenolic content </center>")
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px")
+          .style("white-space", "nowrap")
+          .style("border", "1px solid rgba(122, 122, 122, 0.5)")
+          .style("border-radius", "5px")
+          .style("background-color", "#eaf4ff");
+    });
+    
 
 </script>
