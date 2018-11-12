@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-	resources :herbs do
-		collection { post :import }
-	end
 
   get 'herbs/graph_one'
 
