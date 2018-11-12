@@ -6,5 +6,7 @@ require 'csv'
   end
 
   def graph_two
+		@herbs = Herb.all
   end
+
 end

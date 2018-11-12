@@ -10,6 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20181112144827) do
+
+  create_table "herbs", force: :cascade do |t|
+    t.string   "name"
+    t.float    "TPC_M"
+    t.float    "TPC_SD"
+    t.float    "Flav_M"
+    t.float    "Flav_SD"
+    t.float    "FRAP_M"
+    t.float    "FRAP_SD"
+    t.float    "DPPH_M"
+    t.float    "DPPH_SD"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

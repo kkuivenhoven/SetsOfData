@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  TPC_M: 1.5
+  TPC_SD: 1.5
+  Flav_M: 1.5
+  Flav_SD: 1.5
+  FRAP_M: 1.5
+  FRAP_SD: 1.5
+  DPPH_M: 1.5
+  DPPH_SD: 1.5
+
+two:
+  name: MyString
+  TPC_M: 1.5
+  TPC_SD: 1.5
+  Flav_M: 1.5
+  Flav_SD: 1.5
+  FRAP_M: 1.5
+  FRAP_SD: 1.5
+  DPPH_M: 1.5
+  DPPH_SD: 1.5

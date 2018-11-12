@@ -1,2 +1,36 @@
-<h1>Herbs#graph_two</h1>
-<p>Find me in app/views/herbs/graph_two.html.erb</p>
+<center><h1>Herbs Chart</h1></center>
+
+<div class="container">
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">TPC_M</th>
+			<th scope="col">TPC_SD</th>
+			<th scope="col">Flav_M</th>
+			<th scope="col">Flav_SD</th>
+			<th scope="col">FRAP_M</th>
+			<th scope="col">FRAP_SD</th>
+			<th scope="col">DPPH_M</th>
+			<th scope="col">DPPH_SD</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @herbs.each do |herb| %>
+			<tr>
+				<td><%= herb.name %></td>
+				<td><%= herb.TPC_M %></td>
+				<td><%= herb.TPC_SD %></td>
+				<td><%= herb.Flav_M %></td>
+				<td><%= herb.Flav_SD %></td>
+				<td><%= herb.FRAP_M %></td>
+				<td><%= herb.FRAP_SD %></td>
+				<td><%= herb.DPPH_M %></td>
+				<td><%= herb.DPPH_SD %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>	
+
+</div>
