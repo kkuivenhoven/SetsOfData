@@ -11,8 +11,13 @@
 
   <nav class="navbar navbar-default navbar-expand-sm">
     <%= link_to 'Home', root_path, method: :get %>
-    <%= link_to 'Graph One', herbs_graph_one_path, method: :get %>
-    <%= link_to 'Graph Two', herbs_graph_two_path, method: :get %>
+		&nbsp;&nbsp;<li class="dropdown" style="list-style-type: none;">
+			<a class="dropdown-toggle" href="#" data-toggle="dropdown">Charts</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<%= link_to 'Graph One', herbs_graph_one_path, method: :get %><br>
+					<%= link_to 'Graph Two', herbs_graph_two_path, method: :get %>
+			</div>
+		</li>
 	</nav>
 
   <body>
