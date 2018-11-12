@@ -1,19 +1,10 @@
 <% provide(:title, "Graph One") %>
-<style>
-.bar {
-	fill: #6d9eff;
-}
 
-.tooltip {
-  position: absolute;
-  width: 275px;
-  height: 40px;
-  pointer-events: none;
-	color: #000000;
-}
-</style>
-
-<div id="graphOne">
+<div class="container">
+	<center>
+		<div id="graphOne">
+		</div>
+	</center>
 </div>
 
 <script>
@@ -35,7 +26,7 @@ for(var i=0; i < split_herbs.length; i++){
 var dataArray = [23, 13, 21, 14, 37, 15, 18, 34, 30];
 
 var svg = d3.select("#graphOne").append("svg")
-  .attr("height", 500)
+  .attr("height", 600)
   .attr("width", 500)
 
 var div = d3.select("#graphOne").append("div")
@@ -46,10 +37,10 @@ svg.selectAll("rect")
   .data(split_herbs)
   .enter().append("rect")
     .attr("class", "bar")
-    .attr("height", function(d, i){ console.log("d: " + d); return d[1]*5;})
-    .attr("width", "25")
+    .attr("height", function(d, i){ console.log("d: " + d); return d[1]*2;})
+    .attr("width", "10")
     .attr("x", function(d, i){ return (i * 10);})
-    .attr("y", function(d, i){ return 500 - (d[1]*5);})
+    .attr("y", function(d, i){ return 600 - (d[1]*2);})
     .attr("stroke", "black")
     .attr("stroke-width", "0.5")
     .on('mouseover', function(d, i){
