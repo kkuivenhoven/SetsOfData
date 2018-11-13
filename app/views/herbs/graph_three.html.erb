@@ -1,13 +1,14 @@
-<% provide(:title, "Graph One") %>
+<% provide(:title, "Graph 3") %>
 
 <div class="container">
 	<center>
-		<div id="graphOne">
+		<div id="graphThree">
 		</div>
 	</center>
 </div>
 
 <script>
+
 var herbs = "<%= @herbs %>";
 var split_herbs = herbs.split('], [');
 //console.log("herbs: " + herbs);
@@ -23,13 +24,12 @@ for(var i=0; i < split_herbs.length; i++){
   }
 }
 
-var dataArray = [23, 13, 21, 14, 37, 15, 18, 34, 30];
 
-var svg = d3.select("#graphOne").append("svg")
+var svg = d3.select("#graphThree").append("svg")
   .attr("height", 600)
   .attr("width", 500)
 
-var div = d3.select("#graphOne").append("div")
+var div = d3.select("#graphThree").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
@@ -37,17 +37,17 @@ svg.selectAll("rect")
   .data(split_herbs)
   .enter().append("rect")
     .attr("class", "bar")
-    .attr("height", function(d, i){ console.log("d: " + d); return d[1]*2;})
+    .attr("height", function(d, i){ console.log("d: " + d); return d[3]*3.5;})
     .attr("width", "7")
     .attr("x", function(d, i){ return (i * 7);})
-    .attr("y", function(d, i){ return 600 - (d[1]*2);})
+    .attr("y", function(d, i){ return 600 - (d[3]*3.5);})
     .attr("stroke", "black")
     .attr("stroke-width", "0.5")
     .on('mouseover', function(d, i){
         div.transition()
           .duration(200)
           .style("opacity", .9);
-        div.html("<center>" + d[0] + " has a mean of <br>" + d[1] + " mg GAE/g dw of Phenolic content </center>")
+        div.html("<center>" + d[0] + " has a mean of <br>" + d[3] + " mg RE/g dw of Flavonoids content </center>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px")
           .style("white-space", "nowrap")
@@ -55,6 +55,6 @@ svg.selectAll("rect")
           .style("border-radius", "5px")
           .style("background-color", "#eaf4ff");
     });
-    
+
 
 </script>

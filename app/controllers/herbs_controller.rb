@@ -9,4 +9,12 @@ require 'csv'
 		@herbs = Herb.all
   end
 
+  def graph_three
+		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+  end
+
+  def graph_four
+		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+  end
+
 end

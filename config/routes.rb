@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'rooms/show'
 
   get 'herbs/graph_one'
-
   get 'herbs/graph_two'
+  get 'herbs/graph_three'
+  get 'herbs/graph_four'
 
   get 'static_pages/info'
 
