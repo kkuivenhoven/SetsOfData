@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'herbs/graph_two'
   get 'herbs/graph_three'
   get 'herbs/graph_four'
+  get 'herbs/graph_five'
 
   get 'static_pages/info'
 

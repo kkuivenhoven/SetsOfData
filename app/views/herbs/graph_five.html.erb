@@ -1,8 +1,8 @@
-<% provide(:title, "Graph Four") %>
+<% provide(:title, "Graph Five") %>
 
 <div class="container">
 	<center>
-		<div id="graphFour">
+		<div id="graphFive">
 		</div>
 	</center>
 </div>
@@ -25,11 +25,11 @@ for(var i=0; i < split_herbs.length; i++){
 }
 
 
-var svg = d3.select("#graphFour").append("svg")
+var svg = d3.select("#graphFive").append("svg")
   .attr("height", 500)
   .attr("width", 500)
 
-var div = d3.select("#graphFour").append("div")
+var div = d3.select("#graphFive").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
@@ -37,17 +37,17 @@ svg.selectAll("rect")
   .data(split_herbs)
   .enter().append("rect")
     .attr("class", "bar")
-    .attr("height", function(d, i){ console.log("d: " + d); return d[5]*30;})
+    .attr("height", function(d, i){ console.log("d: " + d); return d[7]*5;})
     .attr("width", "7")
     .attr("x", function(d, i){ return (i * 7);})
-    .attr("y", function(d, i){ return 500 - (d[5]*30);})
+    .attr("y", function(d, i){ return 500 - (d[7]*5);})
     .attr("stroke", "black")
     .attr("stroke-width", "0.5")
     .on('mouseover', function(d, i){
         div.transition()
           .duration(200)
           .style("opacity", .9);
-        div.html("<center>" + d[0] + " has a mean of <br>" + d[5] + "(Fe(II)mmol/g dw of FRAP value</center>")
+        div.html("<center>" + d[0] + " has a mean of <br>" + d[7] + "% of DPPH scavenging capacity</center>")
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px")
           .style("white-space", "nowrap")

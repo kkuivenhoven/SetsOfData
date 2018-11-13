@@ -17,4 +17,8 @@ require 'csv'
 		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
+  def graph_five
+		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+  end
+
 end
