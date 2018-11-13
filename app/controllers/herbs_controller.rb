@@ -1,5 +1,11 @@
 class HerbsController < ApplicationController
-require 'csv'
+	require 'csv'
+	
+	def show
+		if !params[:id].nil?
+			@herb = Herb.where(:id => params[:id]).first
+		end
+	end
 
   def graph_one
 		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))

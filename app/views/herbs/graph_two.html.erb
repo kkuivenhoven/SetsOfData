@@ -20,7 +20,10 @@
 	<tbody>
 		<% @herbs.each do |herb| %>
 			<tr>
-				<td><%= herb.name %></td>
+				<td>
+					<!--%= herb.name %> and %= herb.id %-->
+					<%= link_to "#{herb.name}", herbs_show_path(id: herb.id) %>
+				</td>
 				<td><%= herb.TPC_M %></td>
 				<td><%= herb.TPC_SD %></td>
 				<td><%= herb.Flav_M %></td>

@@ -1,0 +1,62 @@
+<% provide(:title, "#{@herb.name} information") %>
+<% provide(:p, "Below is displayed data on the #{@herb.name} herb.") %>
+
+
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Type of<br>measurement</col>
+				<th scope="col">Mean</col>
+				<th scope="col">SD</col>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Total Phenolic content<br>(mg GAE/g dw)</td>
+				<td><%= @herb.TPC_M %></td>
+				<td><%= @herb.TPC_SD %></td>
+			</tr>
+			<tr>
+				<td>Flavonoids content<br>(mg RE/g dw)</td>
+				<td><%= @herb.Flav_M %></td>
+				<td><%= @herb.Flav_SD %></td>
+			</tr>
+			<tr>
+				<td>FRAP value<br>(Fe(II)mmol/g dw)</td>
+				<td><%= @herb.FRAP_M %></td>
+				<td><%= @herb.FRAP_SD %></td>
+			</tr>
+			<tr>
+				<td>DPPH scavenging <br>capacity (%)</td>
+				<td><%= @herb.DPPH_M %></td>
+				<td><%= @herb.DPPH_SD %></td>
+			</tr>
+		</tbody>
+	</thead>
+</thead>
+				
+	<!--TPC_SD: %= @herb.TPC_SD %><br>
+	Flav_M: %= @herb.Flav_M %>
+	Flav_SD: %= @herb.Flav_SD %><br>
+	FRAP_M: %= @herb.FRAP_M %>
+	FRAP_SD: %= @herb.FRAP_SD %><br>
+	DPPH_M: %= @herb.DPPH_M %>
+	DPPH_SD: %= @herb.DPPH_SD %-->
+</div>
+
+<div id="myDiv">
+</div>
+
+<div class="herbChart">
+</div>
+
+<script>
+
+var TPC_M = "<%= @herb.TPC_M %>";
+var TPC_SD = "<%= @herb.TPC_SD %>";
+var Flav_M = "<%= @herb.Flav_M %>";
+
+
+
+</script>

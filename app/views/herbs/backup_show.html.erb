@@ -1,0 +1,148 @@
+<% provide(:title, "#{@herb.name} information") %>
+<% provide(:p, "Below is displayed data on the #{@herb.name} herb.") %>
+
+<meta charset="utf-8">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jstat/latest/jstat.min.js"></script>
+
+<style>
+	.herbChart {
+		font: 10px sans-serif;
+	}
+
+  .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+    }
+    /*.x.axis path {
+        display: none;
+    }*/
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+</style>
+
+<div class="container">
+	TPC_M: <%= @herb.TPC_M %>
+	TPC_SD: <%= @herb.TPC_SD %><br>
+	Flav_M: <%= @herb.Flav_M %>
+	Flav_SD: <%= @herb.Flav_SD %>
+</div>
+
+<div class="herbChart">
+</div>
+
+<script>
+
+var TPC_M = "<%= @herb.TPC_M %>";
+var TPC_SD = "<%= @herb.TPC_SD %>";
+var Flav_M = "<%= @herb.Flav_M %>";
+
+var margin = {top: 20, right: 30, bottom: 30, left: 40},
+    width = 500 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+    //width = 960 - margin.left - margin.right,
+    //height = 500 - margin.top - margin.bottom;
+
+//var array1 = Random_normal_Dist(30, 15);
+var array1 = Random_normal_Dist(TPC_M, 15);
+//var array1 = Random_normal_Dist(TPC_M, TPC_SD);
+var array2 = Random_normal_Dist(30, 10);
+
+var x = d3.scaleLinear()
+            .rangeRound([0, width]);
+
+    //Min q
+    var d1 = d3.min(array1, function (d) { return d.q; });
+    var d2 = d3.min(array2, function (d) { return d.q; });
+    var min_d = d3.min([d1, d2]);
+		console.log("(min q) min d1: " + d1);
+		console.log("(min q) min d2: " + d2);
+		console.log("(min q) min_d: " + min_d);
+
+    //Max q
+    d1 = d3.max(array1, function (d) { console.log("d.q: " + d.q); return d.q; });
+    d2 = d3.max(array2, function (d) { return d.q; });
+    var max_d = d3.max([d1, d2]);
+		console.log("(max q) max d1: " + d1);
+		console.log("(max q) max d2: " + d2);
+		console.log("(max q) max_d: " + max_d);
+
+    //Max p
+    d1 = d3.max(array1, function (d) { console.log("d.p: " + d.p); return d.p; });
+    d2 = d3.max(array2, function (d) { return d.p; });
+    var max_p = d3.max([d1, d2]);
+		console.log("(max p) max p1: " + d1);
+		console.log("(max p) max p2: " + d2);
+		console.log("(max p) max_p: " + max_p);
+
+  x.domain([min_d, max_d]).nice;
+
+  var y = d3.scaleLinear()
+      .domain([0, max_p])
+      .range([height, 0]);
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var gX = svg.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x));
+
+  var gY = svg.append("g")
+              .attr("class", "y axis")
+              .call(d3.axisLeft(y));
+
+
+  var line = d3.line()
+      .x(function (d) { console.log("><>< d.q: " + d.q); return x(d.q); })
+      .y(function (d) { console.log("))(( d.p: " + d.p); return y(d.p); });
+
+
+  svg.append("path")
+      .datum(array1)
+      .attr("class", "line")
+      .attr("d", line)
+      //.style("fill", "#fdae61")
+      .style("fill", "black")
+      .style("opacity", "0.5");
+
+  svg.append("path")
+      .datum(array2)
+      .attr("class", "line")
+      .attr("d", line)
+      //.style("fill", "#4393c3")
+      .style("fill", "red")
+      .style("opacity", "0.5");
+
+
+  function Random_normal_Dist(mean, sd) {
+      data = [];
+      //for (var i = mean - 4 * sd; i < mean + 4 * sd; i += 1) {
+      for (var i = mean - 4 * sd; i < mean + 4 * sd; i += 1) {
+				//console.log("this is the " + i + "th iteration");
+          q = i
+          p = jStat.normal.pdf(i, mean, sd);
+				//console.log("q: " + q);
+				//console.log("p: " + p);
+          arr = {
+              "q": q,
+              "p": p
+          }
+          data.push(arr);
+      };
+			//console.log("mean: " + mean);
+			//console.log("sd: " + sd);
+      return data;
+  }
+
+
+</script>
