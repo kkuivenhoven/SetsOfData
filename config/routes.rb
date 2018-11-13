@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	mount ActionCable.server => '/cable'
 
   get 'rooms/show'
+  get 'herbs/show'
 
   get 'herbs/graph_one'
   get 'herbs/graph_two'
