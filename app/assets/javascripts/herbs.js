@@ -3,7 +3,7 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-function show_sortTheNums(n){
+/*function show_sortTheNums(n){
 	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	table = document.getElementById("showTable");
 	switching = true;
@@ -41,4 +41,4 @@ function show_sortTheNums(n){
 			}
 		}
 	}
-}
+}*/
