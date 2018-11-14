@@ -1,4 +1,4 @@
-function sortTheNums(n){
+/*function sortTheNums(n){
 	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	table = document.getElementById("myTable");
 	switching = true;
@@ -36,4 +36,4 @@ function sortTheNums(n){
 			}
 		}
 	}
-}
+}*/
