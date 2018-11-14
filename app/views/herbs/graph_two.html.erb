@@ -3,18 +3,18 @@
 
 <div class="container">
 
-<table class="table">
+<table class="table" id="myTable">
 	<thead>
 		<tr>
 			<th scope="col">Name</th>
-			<th scope="col">TPC_M</th>
-			<th scope="col">TPC_SD</th>
-			<th scope="col">Flav_M</th>
-			<th scope="col">Flav_SD</th>
-			<th scope="col">FRAP_M</th>
-			<th scope="col">FRAP_SD</th>
-			<th scope="col">DPPH_M</th>
-			<th scope="col">DPPH_SD</th>
+			<th scope="col" onclick="sortTheNums(1)">TPC_M</th>
+			<th scope="col" onclick="sortTheNums(2)">TPC_SD</th>
+			<th scope="col" onclick="sortTheNums(3)">Flav_M</th>
+			<th scope="col" onclick="sortTheNums(4)">Flav_SD</th>
+			<th scope="col" onclick="sortTheNums(5)">FRAP_M</th>
+			<th scope="col" onclick="sortTheNums(6)">FRAP_SD</th>
+			<th scope="col" onclick="sortTheNums(7)">DPPH_M</th>
+			<th scope="col" onclick="sortTheNums(8)">DPPH_SD</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,14 +24,14 @@
 					<!--%= herb.name %> and %= herb.id %-->
 					<%= link_to "#{herb.name}", herbs_show_path(id: herb.id) %>
 				</td>
-				<td><%= herb.TPC_M %></td>
-				<td><%= herb.TPC_SD %></td>
-				<td><%= herb.Flav_M %></td>
-				<td><%= herb.Flav_SD %></td>
-				<td><%= herb.FRAP_M %></td>
-				<td><%= herb.FRAP_SD %></td>
-				<td><%= herb.DPPH_M %></td>
-				<td><%= herb.DPPH_SD %></td>
+				<td><%= herb.TPC_M.to_f %></td>
+				<td><%= herb.TPC_SD.to_f %></td>
+				<td><%= herb.Flav_M.to_f %></td>
+				<td><%= herb.Flav_SD.to_f %></td>
+				<td><%= herb.FRAP_M.to_f %></td>
+				<td><%= herb.FRAP_SD.to_f %></td>
+				<td><%= herb.DPPH_M.to_f %></td>
+				<td><%= herb.DPPH_SD.to_f %></td>
 			</tr>
 		<% end %>
 	</tbody>
