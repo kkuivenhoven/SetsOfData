@@ -17,13 +17,20 @@ function sortTable(n) {
       //alert(x.innerHTML);
       y = rows[i + 1].getElementsByTagName("TD")[n];
       //alert(y.innerHTML); //grabs the whole li class dropwdown row
+				var test = x.innerHTML.split(">");
+				var ytest = y.innerHTML.split(">");
+				var next = test[1].split("<");
+				var ynext = ytest[1].split("<");
       if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        if (next[0].toLowerCase() > ynext[0].toLowerCase()) {
+        //if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					
           shouldSwitch= true;
           break;
         }   
       } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        if (next[0].toLowerCase() < ynext[0].toLowerCase()) {
+        //if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
           shouldSwitch= true;
           break;
         }   
@@ -88,6 +95,7 @@ function sortTheNums(n){
 </script>
 
 <div class="container">
+					<!--%= herb.name %-->
 
 <table class="table" id="myTable">
 	<thead>
@@ -107,7 +115,6 @@ function sortTheNums(n){
 		<% @herbs.each do |herb| %>
 			<tr>
 				<td>
-					<!--%= herb.name %> and %= herb.id %-->
 					<%= link_to "#{herb.name}", herbs_show_path(id: herb.id) %>
 				</td>
 				<td><%= herb.TPC_M.to_f %></td>
