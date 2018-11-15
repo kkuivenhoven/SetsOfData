@@ -1,7 +1,7 @@
 <% provide(:title, "68 Herbs") %>
 <% provide(:p, "A collection of research on 68 herbs from the chinese_herbs.csv data set.") %>
 
-<center><h1>Herbs Table</h1></center>
+
 <script>
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -93,9 +93,13 @@ function sortTheNums(n){
   }
 }
 </script>
+<br><center><h2>Herbs Data Key</h2></center>
 
 <div class="container">
-					<!--%= herb.name %-->
+
+<%= render 'herbs/key' %><br>
+
+<center><h2>68 herbs and their respective measurements:</h2></center>
 
 <table class="table" id="myTable">
 	<thead>
