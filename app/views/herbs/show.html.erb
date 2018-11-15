@@ -117,29 +117,14 @@ function show_sortTheNums(n){
 			</tr>
 		</tbody>
 	</thead>
-</thead>
+</table>
 				
-	<!--TPC_SD: %= @herb.TPC_SD %><br>
-	Flav_M: %= @herb.Flav_M %>
-	Flav_SD: %= @herb.Flav_SD %><br>
-	FRAP_M: %= @herb.FRAP_M %>
-	FRAP_SD: %= @herb.FRAP_SD %><br>
-	DPPH_M: %= @herb.DPPH_M %>
-	DPPH_SD: %= @herb.DPPH_SD %-->
 </div>
 
-<div id="myDiv">
+
+<div class="container">
+	<%= render 'static_pages/phenolic_compounds' %>
+	<%= render 'static_pages/flavonoids_content' %>
+	<%= render 'static_pages/FRAP_value' %>
+	<%= render 'static_pages/DPPH_sca_cap' %>
 </div>
-
-<div class="herbChart">
-</div>
-
-<script>
-
-var TPC_M = "<%= @herb.TPC_M %>";
-var TPC_SD = "<%= @herb.TPC_SD %>";
-var Flav_M = "<%= @herb.Flav_M %>";
-
-
-
-</script>
