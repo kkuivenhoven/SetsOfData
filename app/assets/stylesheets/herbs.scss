@@ -17,3 +17,18 @@
   pointer-events: none;
   color: #000000;
 }
+
+table {
+	tbody {
+		tr {
+			td {
+				a {
+					color: #262626;
+				}
+				a:hover {
+					color: #e6e6e6;
+				}
+			}
+		}
+	}
+}
