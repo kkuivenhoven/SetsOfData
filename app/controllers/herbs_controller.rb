@@ -8,7 +8,7 @@ class HerbsController < ApplicationController
 	end
 
   def graph_one
-		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+		@herbs = CSV.read(Rails.root.join('woH_herbs.csv'))
   end
 
   def graph_two
