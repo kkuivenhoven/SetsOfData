@@ -16,15 +16,18 @@ class HerbsController < ApplicationController
   end
 
   def graph_three
-		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+		@herbs = CSV.read(Rails.root.join('woH_herbs.csv'))
+		# @herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
   def graph_four
-		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+		@herbs = CSV.read(Rails.root.join('woH_herbs.csv'))
+		# @herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
   def graph_five
-		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+		@herbs = CSV.read(Rails.root.join('woH_herbs.csv'))
+		# @herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
   def graph_six
