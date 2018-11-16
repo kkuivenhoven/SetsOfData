@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'herbs/graph_three'
   get 'herbs/graph_four'
   get 'herbs/graph_five'
+
   get 'herbs/graph_six'
+  get 'herbs/graph_seven'
 
   get 'static_pages/info'
   get 'static_pages/sources'

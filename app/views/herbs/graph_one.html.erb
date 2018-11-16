@@ -1,7 +1,26 @@
 <% provide(:title, "Phenolic Content") %>
 <% provide(:p, "This graph represents the measurements of phenolic content that was gathered from the study of the 68 herbs. Information about what phenolic content is can be found below the graph. Please tap on a bar to learn more.") %>
 
+<style>
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.fooBar {
+	color: red;
+}
+</style>
+
+<svg width="700" height="40">
+	<g class="axis" transform="translate(20, 0)" />
+</svg>
+
 <div class="container">
+
+<svg class="chart">
+</svg>
 
 	<center>
 		<div id="graphOne">
@@ -13,28 +32,59 @@
 <script>
 var herbs = "<%= @herbs %>";
 var split_herbs = herbs.split('], [');
-//console.log("herbs: " + herbs);
-//console.log("split_herbs: " + split_herbs);
 for(var i=0; i < split_herbs.length; i++){
   split_herbs[i] = split_herbs[i].split(';, &');
-  //console.log("**split_herbs["+i+"]: " + split_herbs[i]);
   for(var j=0; j < split_herbs[i].length; j++){
     split_herbs[i][j] =  split_herbs[i][j].replace("&quot;","");
     split_herbs[i][j] =  split_herbs[i][j].replace("quot;","");
     split_herbs[i][j] =  split_herbs[i][j].replace("&quot","");
-    console.log(">> split_herbs["+i+"]["+j+"]: " + split_herbs[i][j]);
   }
 }
 
-var dataArray = [23, 13, 21, 14, 37, 15, 18, 34, 30];
+var herbData = [];
+var herbNames = [];
+for(var i=0; i < split_herbs.length; i++){
+	if(i > 0){
+		herbNames.push(split_herbs[i][0])
+		herbData.push(split_herbs[i][1])
+	}
+}
+console.log("herbData: " + herbData);
+console.log("herbNames: " + herbNames);
+
 
 var svg = d3.select("#graphOne").append("svg")
-  .attr("height", 600)
+  .attr("height", 800)
   .attr("width", 500)
 
 var div = d3.select("#graphOne").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
+
+
+var g = svg.append("g")
+          .attr("transform", "translate(" + 0 + "," + 250 + ")");
+
+var xScale = d3.scaleBand().range([0, 500]),
+    yScale = d3.scaleLinear().range([200, 0]);
+
+xScale.domain(split_herbs.map(function(d) { return d[0]; }));
+yScale.domain([0, d3.max(split_herbs, function(d) { return d[1]; })]);
+
+/*g.append("g")
+    .attr("transform", "translate(0," + 250 + ")")
+		.attr("class", "fooBar")
+    .call(d3.axisBottom(xScale));
+*/
+
+/*g.selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
+*/
+
 
 svg.selectAll("rect")
   .data(split_herbs)
@@ -58,6 +108,61 @@ svg.selectAll("rect")
           .style("border-radius", "5px")
           .style("background-color", "#eaf4ff");
     });
-    
+
+svg.append("g")
+    .attr("transform", "translate(0," + 600 + ")")
+		.attr("class", "fooBar")
+    .call(d3.axisBottom(xScale));
+svg.selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
+
+var paddingH = 50;
+var paddingV = 50;
+var xScale, yScale;
+xScale = d3.scaleLinear()
+				.domain( [ 0, 50 + d3.max( split_herbs, function( d ) { return d.x }) ] )
+				.range( [ paddingH, 500 - split_herbs ] );
+yScale = d3.scaleLinear()
+				.domain( [ 0, 50 + d3.max( dataset, function( d ) { return d.y }) ] )
+				.range( [ svgHeight - (paddingV * 2), paddingV ] );
+
+svg.append('g')
+	.attr('transform', 'translate(' + 0 + ', ' + (height - paddingV*2) + ')')
+	.call(d3.axisBottom(xScale)
+					.ticks(20));
+
+svg.append("g")
+	.attr("transform", "translate( " + paddingV + ', ' + 0 + ')')
+	.call(d3.axisLeft(yScale)
+					.ticks(20));
+
+
+
+
+/*var fruit = ["banana", "apple", "peach", "apricot", "pear"];
+
+var scale = d3.scaleLinear().domain([0, 1000]).range([0, 600]);
+var n_scale = d3.scaleLinear().domain([0, 68]).range([0, 600]);
+var x = d3.scaleLinear()
+								.domain([0, 70])
+								.range([0, 600]);
+
+console.log("x(20): " + x(20));
+console.log("x(50): " + x(50));
+
+var axis = d3.axisBottom().scale(scale);
+var n_axis = d3.axisBottom().scale(x);
+
+d3.select('.axis')
+	.call(axis);
+
+svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+	.call(n_axis);
+*/
 
 </script>

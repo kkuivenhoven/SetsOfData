@@ -31,4 +31,8 @@ class HerbsController < ApplicationController
 		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
+  def graph_seven
+		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
+  end
+
 end

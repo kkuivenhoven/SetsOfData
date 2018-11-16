@@ -1,11 +1,26 @@
 <% provide(:title, "Graph Six") %>
 
+<style>
+path {
+	fill: none;
+	stroke: #aaa;
+}
+</style>
+
 <div class="container">
+
+	<svg width="700" height="40">
+		<g class="axis" transform="translate(20, 0)" />
+	</svg>
+
+		<div id="o_graphSix">
+		</div>
 	<center>
 		<div id="graphSix">
 		</div>
 	</center>
 </div>
+
 
 <script>
 var herbs = "<%= @herbs %>";
@@ -19,47 +34,15 @@ for(var i=0; i < split_herbs.length; i++){
     split_herbs[i][j] =  split_herbs[i][j].replace("&quot;","");
     split_herbs[i][j] =  split_herbs[i][j].replace("quot;","");
     split_herbs[i][j] =  split_herbs[i][j].replace("&quot","");
-    console.log(">> split_herbs["+i+"]["+j+"]: " + split_herbs[i][j]);
+    //console.log(">> split_herbs["+i+"]["+j+"]: " + split_herbs[i][j]);
   }
 }
 
-var r = 300;
-var color = d3.scale.category20c(); 
 
-    var data = [{"label":"one", "value":20}, 
-            {"label":"two", "value":50}, 
-            {"label":"three", "value":30}];
+var scale = d3.scaleLinear().domain([0, 1000]).range([0, 600]);
 
-var vis = d3.select("#graphSix").append("svg:svg")
-	.data(split_herbs)
-  .attr("height", 600)
-  .attr("width", 500)
-	.append("svg:g")
-	.attr("transform", "translate(" + r + "," + r + ")");
+var axis = d3.axisBottom().scale(scale);
 
-var div = d3.select("#graphSix").append("div")
-  .attr("class", "tooltip")
-  .style("opacity", 0);
-	
-	var arc = d3.svg.arc()
-		.outerRadius(r);
-
-	var pie = d3.layout.pie()
-		.value(function(d) { return d.value; });
-
-	var arcs = vis.selectAll("g.slice")
-		.data(pie)
-		.enter()
-		.append("svg:g")
-		.attr("class", "slice");
-
-		arcs.append("svg:path")
-			.attr("fill", function(d, i){ return color(i); })
-			.attr("d", arc)
-			.on('mouseover', function(d, i){
-				console.log("MOUSED OVER!");
-			});
-
-    
-
+d3.select('.axis')
+	.call(axis);
 </script>

@@ -1,0 +1,149 @@
+<% provide(:title, "Phenolic Content") %>
+<% provide(:p, "This graph represents the measurements of phenolic content that was gathered from the study of the 68 herbs. Information about what phenolic content is can be found below the graph. Please tap on a bar to learn more.") %>
+
+<style>
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+</style>
+
+<svg width="700" height="40">
+	<g class="axis" transform="translate(20, 0)" />
+</svg>
+
+<div class="container">
+
+<svg class="chart">
+</svg>
+
+	<center>
+		<div id="graphOne">
+		</div>
+	</center>
+		<%= render 'static_pages/phenolic_compounds' %>
+</div>
+
+<script>
+var herbs = "<%= @herbs %>";
+var split_herbs = herbs.split('], [');
+//console.log("herbs: " + herbs);
+//console.log("split_herbs: " + split_herbs);
+for(var i=0; i < split_herbs.length; i++){
+  split_herbs[i] = split_herbs[i].split(';, &');
+  //console.log("**split_herbs["+i+"]: " + split_herbs[i]);
+  for(var j=0; j < split_herbs[i].length; j++){
+    split_herbs[i][j] =  split_herbs[i][j].replace("&quot;","");
+    split_herbs[i][j] =  split_herbs[i][j].replace("quot;","");
+    split_herbs[i][j] =  split_herbs[i][j].replace("&quot","");
+    console.log(">> split_herbs["+i+"]["+j+"]: " + split_herbs[i][j]);
+  }
+}
+
+
+	var margin = 30;
+	var width = 600;
+	var height = 600;
+
+	var pc_vals = [];
+	for(var i=0; i < split_herbs.length; i++){
+		if(i > 0){
+			pc_vals.push(split_herbs[i][1]);	
+			console.log("split_herbs["+i+"][0]: " + split_herbs[i][0]);
+			console.log("split_herbs["+i+"][1]: " + split_herbs[i][1]);
+		}
+	}
+
+	//var data = [4,8,15,16,23,42];
+	var data = pc_vals;
+	var count = [];
+	for(var i=0; i<split_herbs.length; i++){
+		count.push(i);
+	}
+
+	var x = d3.scale.ordinal()
+					//.domain([0,1,2,3,4,5,6,7,8,9])
+					//.domain([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])
+					.domain(count)
+					.rangeBands([0,width]);
+
+	var y = d3.scale.linear()
+					.domain([0,600])
+					.range([height,0]);
+					//.range([height+30,60]);
+
+	var chart = d3.select(".chart");
+
+	var xScale = d3.scaleBand().range([0,width]).padding(0.4);
+	var yScale = d3.scaleLinear().range([height, 0]);
+
+	chart.attr("width", width + 2*margin)
+			.attr("height", height + 2*margin)
+			.append("g")
+			//.attr("transform", "translate(" + margin + "," + margin + ")")
+			.attr("transform", "translate(0,0)")
+			.selectAll("rect")
+		.data(data)
+			.enter().append("rect")
+			.attr("width",xScale.bandwidth())
+			.attr("height",function(d){ return height - y(d); })
+			.attr("x",function(d,i) { return x(i); })
+			.attr("y", function(d) { return y(d); });
+	
+
+var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom")
+		.ticks(17);
+
+var yAxis = d3.svg.axis()
+			.scale(y)
+			.orient("left")
+			.ticks(5);
+
+var g = chart.append("g")
+					.attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+/*chart.append("g")
+			.attr("transform", "translate(" + margin + "," + (height+margin) + ")")
+			.attr("class", "axis")
+			.call(d3.axisBottom(xScale));*/
+
+/*chart.append("g")
+				.attr("transform", "translate(" + margin + "," + margin + ")")
+				.attr("class","axis")
+				.call(yAxis);*/
+
+chart.append("text")
+	.attr("transform","translate(100,0)")
+	.attr("x",50)
+	.attr("y",50)
+	.attr("font-size", "24px")
+	.text("Phenolic Content");
+
+/*g.append("g")
+	.attr("transform", "translate(0," + height + ")")
+	.call(d3.axisBottom(xScale))
+	.append("text")
+	.attr("y", height - 250)
+	.attr("x", width - 100)
+	.attr("text-anchor", "end")
+	.attr("stroke", "black")
+	.text("Year");
+*/
+
+var scale = d3.scaleLinear().domain([0, 1000]).range([0, 600]);
+var n_scale = d3.scaleLinear().domain([0, 68]).range([0, 600]);
+var axis = d3.axisBottom().scale(scale);
+var n_axis = d3.axisBottom().scale(n_scale);
+
+d3.select('.axis')
+	.call(axis);
+
+chart.append("g")
+	.attr("transform", "translate(0," + height + ")")
+	.call(n_axis);
+
+</script>
