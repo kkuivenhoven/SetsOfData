@@ -87,6 +87,10 @@ function show_sortTheNums(n){
 
 <div class="container">
 
+
+<%= render 'herbs/key' %><br>
+
+	<h3><%= @herb.name %> Data</h3>
 	<table class="table" id="showTable">
 		<thead>
 			<tr>
@@ -124,7 +128,7 @@ function show_sortTheNums(n){
 
 
 <div class="container">
-	<br><%= render 'herbs/key' %>
+	<br><!--%= render 'herbs/key' %-->
 	<%= render 'static_pages/phenolic_compounds' %>
 	<%= render 'static_pages/flavonoids_content' %>
 	<%= render 'static_pages/FRAP_value' %>
