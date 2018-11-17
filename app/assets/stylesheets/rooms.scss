@@ -1,9 +1,21 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.chatWrapper {
+	width: 220px;
+	height: 375px;
+	border: 3px solid #f1f1f1;
+}
 
 #messages {
-	width: 200px;
+	width: 214px;
 	height: 250px;
 	overflow: scroll;
+	border: 3px solid red;
 }
+
+#messageInput {
+	border: 3px solid blue;
+	overflow: scroll;
+}
+	

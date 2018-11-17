@@ -1,11 +1,12 @@
+<div class="chatWrapper">
+	<h1>Chat room</h1>
 
-<h1>Chat room</h1>
+	<div id="messages">
+		<%= render @messages %>
+	</div>
 
-<div id="messages">
-	<%= render @messages %>
+	<form id="messageInput">
+		<label>Say something:</label><br>
+		<input type="text" data-behavior="room_speaker">
+	</form>
 </div>
-
-<form>
-	<label>Say something:</label><br>
-	<input type="text" data-behavior="room_speaker">
-</form>

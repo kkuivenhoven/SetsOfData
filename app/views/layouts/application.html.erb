@@ -13,7 +13,6 @@
   <nav class="navbar navbar-default navbar-expand-sm">
     &nbsp;&nbsp;<%= link_to 'Home', root_path, method: :get %>
     <!--&nbsp;&nbsp;%= link_to 'Info', static_pages_info_path, method: :get %-->
-    &nbsp;&nbsp;<%= link_to 'Rooms#show', rooms_show_path, method: :get %>
 		&nbsp;&nbsp;<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %><br>
 		&nbsp;&nbsp;
 		<li class="dropdown" style="list-style-type: none;">
@@ -26,6 +25,7 @@
 					<!--&nbsp;&nbsp;%= link_to 'test graph', herbs_graph_six_path, method: :get %><br>
 					&nbsp;&nbsp;%= link_to '7th test graph', herbs_graph_seven_path, method: :get %-->
 		</li>
+    &nbsp;&nbsp;<%= link_to 'Chat', rooms_show_path, method: :get %>
     &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
 	</nav>
 
