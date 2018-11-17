@@ -12,8 +12,8 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 		console.log("hello! message received")
 
   speak: (message) ->
-		console.log("speak message!")
     @perform 'speak', message: message
+		console.log("speak message!")
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
