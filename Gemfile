@@ -8,6 +8,7 @@ end
 gem 'plotlyjs-rails'
 gem 'd3_rails'
 gem 'bootstrap'
+gem 'redis'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
