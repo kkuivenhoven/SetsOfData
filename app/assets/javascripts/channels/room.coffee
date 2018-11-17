@@ -1,18 +1,18 @@
 App.room = App.cable.subscriptions.create "RoomChannel",
   connected: ->
-		alert("conneted!")
+		console.log("conneted!")
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
-		alert("disconneted!")
+		console.log("disconneted!")
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-		alert("hello! message received")
+		console.log("hello! message received")
     $('#messages').append data['message']
 
   speak: (message) ->
-		alert("speak message!")
+		console.log("speak message!")
     @perform 'speak', message: message
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
