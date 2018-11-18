@@ -9,7 +9,14 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     $('#messages').append data['message']
 
   speak: (message) ->
-    @perform 'speak', message: message
+    console.log "WEEE"
+    sn_name = $('#user_sn')
+    screenName = $('#user_sn')[0].innerHTML
+    wholeMessage = screenName + ": " + message
+    console.log "message: " + message
+    console.log "wholeMessage: " + wholeMessage
+    # @perform 'speak', message: message
+    @perform 'speak', message: wholeMessage
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send

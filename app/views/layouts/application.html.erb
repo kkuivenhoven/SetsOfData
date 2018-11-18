@@ -28,6 +28,12 @@
     &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
 	</nav>
 
+<span id="user_sn" style="display:none;">
+	<% if !@user.nil? %>
+		<%= @user.sn_total %>
+	<% end %>
+</span>
+
 	<div class="center jumbotron jumbotron-fluid">
 		<div class="container">
 			&nbsp;<h2 style="color: #f4e6e5;">Herbs <span id="bar">|</span>
