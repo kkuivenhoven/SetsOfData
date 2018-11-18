@@ -1,5 +1,5 @@
 <% provide(:title, "#{@herb.name} information") %>
-<% provide(:p, "Below is displayed data on the #{@herb.name} herb.") %>
+<% provide(:p, "<span style='font-color: #f4e6e5;'>Below is displayed data on the #{@herb.name} herb.</span>".html_safe) %>
 
 <script>
 function sortTable(n) {

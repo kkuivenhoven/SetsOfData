@@ -14,23 +14,23 @@
     &nbsp;&nbsp;<%= link_to 'Home', root_path, method: :get %>
     <!--&nbsp;&nbsp;%= link_to 'Info', static_pages_info_path, method: :get %-->
 		&nbsp;&nbsp;<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %>
-    &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
-		&nbsp;&nbsp;<li class="dropdown" style="list-style-type: none;">
+		<!--&nbsp;&nbsp;<li class="dropdown" style="list-style-type: none;">
 			<a class="dropdown-toggle" href="#" data-toggle="dropdown">Charts/Graphs</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					&nbsp;&nbsp;<%= link_to 'Phenolic Content', herbs_graph_one_path, method: :get %><br>
-					&nbsp;&nbsp;<%= link_to 'Flavonoids Content', herbs_graph_three_path, method: :get %><br>
-					&nbsp;&nbsp;<%= link_to 'FRAP Value', herbs_graph_four_path, method: :get %><br>
-					&nbsp;&nbsp;<%= link_to 'DPPH Scavenging Cap.', herbs_graph_five_path, method: :get %><br>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown"-->
+					&nbsp;&nbsp;<%= link_to 'Phenolic Content', herbs_graph_one_path, method: :get %>
+					&nbsp;&nbsp;<%= link_to 'Flavonoids Content', herbs_graph_three_path, method: :get %>
+					&nbsp;&nbsp;<%= link_to 'FRAP Value', herbs_graph_four_path, method: :get %>
+					&nbsp;&nbsp;<%= link_to 'DPPH Scavenging Cap.', herbs_graph_five_path, method: :get %>
 					<!--&nbsp;&nbsp;%= link_to 'test graph', herbs_graph_six_path, method: :get %><br>
 					&nbsp;&nbsp;%= link_to '7th test graph', herbs_graph_seven_path, method: :get %-->
-		</li>
+		<!--/li-->
     <!--%= link_to 'Chat', rooms_show_path, method: :get %-->
+    &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
 	</nav>
 
 	<div class="center jumbotron jumbotron-fluid">
 		<div class="container">
-			&nbsp;<h2>Herbs <span id="bar">|</span>
+			&nbsp;<h2 style="color: #f4e6e5;">Herbs <span id="bar">|</span>
 			<%= yield(:title) %></h2>
 			<%= yield(:p) %></h2>
 		</div>
@@ -38,6 +38,7 @@
 		
 
   <body>
+		<span id="geoIP"></span>
     <%= yield %>
   </body>
 
@@ -66,6 +67,7 @@
   </form>
 </div>
 </div>
+
 
 
  <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
