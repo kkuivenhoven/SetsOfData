@@ -7,6 +7,7 @@ end
 
 gem 'plotlyjs-rails'
 gem 'd3_rails'
+gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'redis'
 

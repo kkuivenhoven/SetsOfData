@@ -46,6 +46,9 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
     coffee-rails (4.2.2)
@@ -92,7 +95,7 @@ GEM
     pg (0.21.0)
     plotlyjs-rails (1.0.0)
       rails (>= 3.1)
-    popper_js (1.14.3)
+    popper_js (1.14.5)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (0.6.3)
@@ -173,6 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
   d3_rails

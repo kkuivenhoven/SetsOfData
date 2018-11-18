@@ -1,12 +1,25 @@
 <div class="chatWrapper">
-	<h1>Chat room</h1>
+	<div class="expandRow">
+			<span onclick="onMax()" id="chatMax"class="glyphicon glyphicon-plus"></span>
+			<span onclick="onMin()" id="chatMin" class="glyphicon glyphicon-minus"></span>
+			&nbsp;
+	</div>
+	<div class="chatRow">
+		<h2>
+			Chat Room
+		</h2>
+	</div>
 
+<div id="wholeChat">
 	<div id="messages">
 		<%= render @messages %>
 	</div>
 
 	<form id="messageInput">
 		<label>Say something:</label><br>
-		<input type="text" data-behavior="room_speaker">
+		<!--input id="mes_input"type="text" placeholder="Type message.." data-behavior="room_speaker"-->
+		<textarea id="mes_input"type="text" placeholder="Type message.." data-behavior="room_speaker"></textarea>
+		<p-small>(press enter to send)</p-small>
 	</form>
+</div>
 </div>

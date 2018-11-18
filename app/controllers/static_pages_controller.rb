@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+	before_action :load_messages
 
 	def home
 	end
@@ -8,5 +9,10 @@ class StaticPagesController < ApplicationController
 
 	def sources
 	end
+
+	private
+   def load_messages
+      @messages = Message.all
+   end
 
 end

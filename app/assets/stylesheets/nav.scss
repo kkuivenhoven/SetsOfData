@@ -1,14 +1,19 @@
-.navbar {
+nav {
 	// background-color: #ffbe70;
-	background-color: #e67e00;
+	//background-color: #e67e00;
+	background-color: #990a00;
 	//background-color: #8e0900;
 	color: #000000;
 	a {
-		color: #000000;
+		color: #333333;
+		font-family: "Helvetica Neue";
+		line-height: 1.428571429;
 	}
 	li {
 		a {	
-			color: #000000;
+			color: #333333;
+			font-family: "Helvetica Neue";
+			line-height: 1.428571429;
 		}
 	}
 }

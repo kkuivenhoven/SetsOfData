@@ -11,10 +11,10 @@
   </head>
 
   <nav class="navbar navbar-default navbar-expand-sm">
-    &nbsp;&nbsp;<%= link_to 'Home', root_path, method: :get %>
+    <%= link_to 'Home', root_path, method: :get %>
     <!--&nbsp;&nbsp;%= link_to 'Info', static_pages_info_path, method: :get %-->
-		&nbsp;&nbsp;<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %><br>
-		&nbsp;&nbsp;
+		<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %>
+    <%= link_to 'Sources', static_pages_sources_path, method: :get %>
 		<li class="dropdown" style="list-style-type: none;">
 			<a class="dropdown-toggle" href="#" data-toggle="dropdown">Charts/Graphs</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,8 +25,7 @@
 					<!--&nbsp;&nbsp;%= link_to 'test graph', herbs_graph_six_path, method: :get %><br>
 					&nbsp;&nbsp;%= link_to '7th test graph', herbs_graph_seven_path, method: :get %-->
 		</li>
-    &nbsp;&nbsp;<%= link_to 'Chat', rooms_show_path, method: :get %>
-    &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
+    <!--%= link_to 'Chat', rooms_show_path, method: :get %-->
 	</nav>
 
 	<div class="center jumbotron jumbotron-fluid">
@@ -41,6 +40,33 @@
   <body>
     <%= yield %>
   </body>
+
+<div class="chatWrapper">
+  <div class="expandRow">
+      <span onclick="onMax()" id="chatMax"class="glyphicon glyphicon-plus"></span>
+      <span onclick="onMin()" id="chatMin" class="glyphicon glyphicon-minus"></span>
+      &nbsp;
+  </div>
+  <div class="chatRow">
+    <h4>
+      Chat Room
+    </h4>
+  </div>
+
+<div id="wholeChat">
+  <div id="messages">
+    <%= render @messages %>
+  </div>
+
+  <form id="messageInput">
+    <label>Say something:</label><br>
+    <!--input id="mes_input"type="text" placeholder="Type message.." data-behavior="room_speaker"-->
+    <textarea id="mes_input"type="text" placeholder="Type message.." data-behavior="room_speaker"></textarea>
+    <p-small>(press enter to send)</p-small>
+  </form>
+</div>
+</div>
+
 
  <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
   <div class="footer navbar-fixed-bottom">

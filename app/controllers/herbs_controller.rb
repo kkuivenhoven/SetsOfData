@@ -1,6 +1,8 @@
 class HerbsController < ApplicationController
 	require 'csv'
 	
+	before_action :load_messages
+	
 	def show
 		if !params[:id].nil?
 			@herb = Herb.where(:id => params[:id]).first
@@ -38,4 +40,10 @@ class HerbsController < ApplicationController
 		@herbs = CSV.read(Rails.root.join('newHerbs.csv'))
   end
 
+
+	private
+	
+		def load_messages
+			@messages = Message.all
+		end
 end
