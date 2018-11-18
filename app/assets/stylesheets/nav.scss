@@ -1,19 +1,25 @@
 nav {
 	// background-color: #ffbe70;
 	//background-color: #e67e00;
-	background-color: #990a00;
+	background-color: #990a00 !important;
+	border: #990a00 !important;
 	//background-color: #8e0900;
+	display: inline-block;
+	width: 100%;
 	color: #000000;
 	a {
 		color: #333333;
 		font-family: "Helvetica Neue";
 		line-height: 1.428571429;
+		font-size: 16px;
 	}
 	li {
+		display: inline-block;
 		a {	
 			color: #333333;
 			font-family: "Helvetica Neue";
 			line-height: 1.428571429;
+			font-size: 16px;
 		}
 	}
 }

@@ -11,11 +11,11 @@
   </head>
 
   <nav class="navbar navbar-default navbar-expand-sm">
-    <%= link_to 'Home', root_path, method: :get %>
+    &nbsp;&nbsp;<%= link_to 'Home', root_path, method: :get %>
     <!--&nbsp;&nbsp;%= link_to 'Info', static_pages_info_path, method: :get %-->
-		<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %>
-    <%= link_to 'Sources', static_pages_sources_path, method: :get %>
-		<li class="dropdown" style="list-style-type: none;">
+		&nbsp;&nbsp;<%= link_to 'Herb Data', herbs_graph_two_path, method: :get %>
+    &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
+		&nbsp;&nbsp;<li class="dropdown" style="list-style-type: none;">
 			<a class="dropdown-toggle" href="#" data-toggle="dropdown">Charts/Graphs</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					&nbsp;&nbsp;<%= link_to 'Phenolic Content', herbs_graph_one_path, method: :get %><br>
