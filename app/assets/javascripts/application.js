@@ -18,3 +18,12 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require_tree .
+
+var userIP = null;
+
+
+if(userIP == null){
+	  $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {    //console.log(JSON.stringify(data, null, 2));
+    userIP = data.geobytesremoteip;
+  }); 
+}

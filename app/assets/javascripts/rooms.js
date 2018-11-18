@@ -1,10 +1,11 @@
 $(document).ready(function() {
 	$('#messages').scrollTop($('#messages')[0].scrollHeight);
 	$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
-		console.log(JSON.stringify(data, null, 2));
+		//console.log(JSON.stringify(data, null, 2));
 		console.log("data.geobytesremoteip: " + data.geobytesremoteip);
 		$("#geoIP").val(data.geobytesremoteip);
 	});
+	console.log("userIP: " + userIP);
 });
 
 function onMin(){
@@ -13,6 +14,8 @@ function onMin(){
 
 function onMax(){
 	document.getElementById("wholeChat").style.display = "block";
+	console.log("now userIP: " + userIP);
+	console.log("location.hostname: " + location.hostname);
 	console.log("getRandomName(): " + getRandomName());
 	console.log("getRandomColor(): " + getRandomColor());
 }
