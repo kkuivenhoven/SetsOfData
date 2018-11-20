@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('#messages').scrollTop($('#messages')[0].scrollHeight);
+	document.getElementById("wholeChat").style.display = "none";
 	console.log("in ready() function JS");
 });
 
