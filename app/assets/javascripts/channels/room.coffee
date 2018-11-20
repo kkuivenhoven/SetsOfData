@@ -18,7 +18,6 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     console.log "wholeMessage: " + wholeMessage
 		console.log "message should've spoken"
     # @perform 'speak', message: message
-		window.location.reload()
 
     $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
       if event.keyCode is 13 # return = send
