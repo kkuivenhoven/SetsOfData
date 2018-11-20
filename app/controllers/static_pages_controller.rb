@@ -32,6 +32,7 @@ class StaticPagesController < ApplicationController
 				cp_SnNum = sn_num.to_s
 				total = sn_word + "_" + cp_SnNum
 				User.create(:ip_addr => ip_address, :sn_name => sn_word, :sn_num => sn_num, :sn_total => total)
+				@user = User.find_by(ip_addr: ip_address)
 			else
 				@user = User.find_by(ip_addr: ip_address)
 			end

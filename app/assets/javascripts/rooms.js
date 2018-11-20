@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('#messages').scrollTop($('#messages')[0].scrollHeight);
+	console.log("in ready() function JS");
 });
 
 function onMin(){
