@@ -15,6 +15,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     wholeMessage = screenName + ": " + message
     console.log "message: " + message
     @perform 'speak', message: wholeMessage
+		window.location.reload()
     console.log "wholeMessage: " + wholeMessage
 		console.log "message should've spoken"
     # @perform 'speak', message: message
