@@ -28,8 +28,7 @@
     &nbsp;&nbsp;<%= link_to 'Sources', static_pages_sources_path, method: :get %>
 	</nav>
 
-<!--span id="user_sn" style="display:none;"-->
-<span id="user_sn" style="">
+<span id="user_sn" style="display:none;">
 	<% if !@user.nil? %>
 		<%= @user.sn_total.capitalize %>
 	<% end %>
