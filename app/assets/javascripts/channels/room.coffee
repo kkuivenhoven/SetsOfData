@@ -14,12 +14,13 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     screenName = $('#user_sn')[0].innerHTML
     wholeMessage = screenName + ": " + message
     console.log "message: " + message
-    console.log "wholeMessage: " + wholeMessage
-    # @perform 'speak', message: message
     @perform 'speak', message: wholeMessage
+    console.log "wholeMessage: " + wholeMessage
+		console.log "message should've spoken"
+    # @perform 'speak', message: message
 
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
-  if event.keyCode is 13 # return = send
-    App.room.speak event.target.value
-    event.target.value = ''
-    event.preventDefault()
+    $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
+      if event.keyCode is 13 # return = send
+        App.room.speak event.target.value
+        event.target.value = ''
+        event.preventDefault()
