@@ -38,6 +38,7 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
    # config.action_cable.url = 'wss://example.com/cable'
    # config.action_cable.url = 'wss://{hostname}/cable'
+   config.action_cable.url = 'wss://{localhost:3000}/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   config.action_cable.allowed_request_origins = ["https://setsofdata.herokuapp.com/rooms/show"]
 
