@@ -21,6 +21,9 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
     console.log "in $(document).on function!!!"
+		console.log "window.location.protocol: " + window.location.protocol
+		console.log "window.location.host: " + window.location.host
+    console.log "window.location.pathname: " + window.location.pathname
     App.room.speak event.target.value
     event.target.value = ''
     event.preventDefault()
