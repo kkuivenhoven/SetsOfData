@@ -42,7 +42,7 @@ Rails.application.configure do
    # config.action_cable.url = 'https://setsofdata.herokuapp.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   # config.action_cable.allowed_request_origins = ["https://setsofdata.herokuapp.com/rooms/show", "https://setsofdata.herokuapp.com/"}]
-  config.action_cable.allowed_request_origins = ["https://setsofdata.herokuapp.com/rooms/show"}]
+ #  config.action_cable.allowed_request_origins = ["https://setsofdata.herokuapp.com/rooms/show"}]
 
 # config.action_cable.disable_request_forgery_protection = true
 
