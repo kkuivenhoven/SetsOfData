@@ -13,11 +13,11 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     sn_name = $('#user_sn')
     screenName = $('#user_sn')[0].innerHTML
     wholeMessage = screenName + ": " + message
-    console.log "message: " + message
-    console.log "wholeMessage: " + wholeMessage
     console.log "speak() window.location.protocol: " + window.location.protocol
     console.log "speak() window.location.host: " + window.location.host
     console.log "speak() window.location.pathname: " + window.location.pathname
+    console.log "message: " + message
+    console.log "wholeMessage: " + wholeMessage
     @perform 'speak', message: wholeMessage
     # @perform 'speak', message: message
 
