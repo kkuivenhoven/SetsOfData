@@ -10,14 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery2
+//
+//= require jquery
 //= require jquery_ujs
 //= require plotly
 //= require d3
-//= require cable
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require cable
+//= require_tree ./channels
 //= require_tree .
 
 var userIP = null;
