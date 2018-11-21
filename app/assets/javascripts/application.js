@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require cable
+//= require_tree ./channels
 //= require_tree .
 
 var userIP = null;
