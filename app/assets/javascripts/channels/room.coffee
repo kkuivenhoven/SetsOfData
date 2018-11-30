@@ -1,5 +1,6 @@
 App.room = App.cable.subscriptions.create "RoomChannel",
   connected: ->
+    console.log "inside connected"
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
@@ -14,6 +15,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     screenName = $('#user_sn')[0].innerHTML
     wholeMessage = screenName + ": " + message
     @perform 'speak', message: wholeMessage
+    # @perform 'speak', message: wholeMessage
     # @perform 'speak', message: message
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
